@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity,} from 'react-native';
 import {Image as ReactImage} from 'react-native';
-import AppLoading from 'expo-app-loading';
+import ScrollContainer from '/Users/taranecvadim/Programming/Expo/fo2/special forms/ScrollContainer.js';
+// import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 
 let customFonts = {
@@ -20,49 +21,86 @@ export default class Starts extends Component {
         };
     }
 
-    state = {
-        fontsLoaded: false,
-    };
-
-    async _loadFontsAsync() {
-        await Font.loadAsync(customFonts);
-        this.setState({ fontsLoaded: true });
-    }
-
-    componentDidMount() {
-        this._loadFontsAsync();
-    }
+    // state = {
+    //     fontsLoaded: false,
+    // };
+    //
+    // async _loadFontsAsync() {
+    //     await Font.loadAsync(customFonts);
+    //     this.setState({ fontsLoaded: true });
+    // }
+    //
+    // componentDidMount() {
+    //     this._loadFontsAsync();
+    // }
 
     render() {
-        if (this.state.fontsLoaded) {
+        // if (this.state.fontsLoaded) {
             return (
-                <View style={styles.container}>
-                    <Text style = {styles.headn}>
-                        КАТЕГОРИИ ПРОДУКТОВ, ИЗ КОТОРЫХ БУДЕТ СОСТОЯТЬ ВАШ РАЦИОН
-                    </Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')}>
-                        <ReactImage source={require('../pngs/variaty/fish.png')} style = {styles.image}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')} style={styles.button}>
-                        <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
-                    </TouchableOpacity>
+                <ScrollContainer>
+                    <View style={styles.container}>
+                        <Text style = {styles.headn}>
+                            КАТЕГОРИИ ПРОДУКТОВ, ИЗ КОТОРЫХ БУДЕТ СОСТОЯТЬ ВАШ РАЦИОН
+                        </Text>
+                        <View style = {styles.zavtr_fish}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zavtrak')}>
+                                <ReactImage source={require('../pngs/variaty/zavtrak.png')} style = {styles.image_zavtr}/>
+                            </TouchableOpacity>
 
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Fish')}>
+                                <ReactImage source={require('../pngs/variaty/fish.png')} style = {styles.image_fish}/>
+                            </TouchableOpacity>
+                        </View>
 
-                </View>
+                        <View style = {styles.garn_meat}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Garnish')}>
+                                <ReactImage source={require('../pngs/variaty/garnish.png')} style = {styles.image_garnish}/>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Meat')}>
+                                <ReactImage source={require('../pngs/variaty/meat.png')} style = {styles.image_meat}/>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style = {styles.soup_drink}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Soup')}>
+                                <ReactImage source={require('../pngs/variaty/soup.png')} style = {styles.image_soup}/>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Drinks')}>
+                                <ReactImage source={require('../pngs/variaty/drink.png')} style = {styles.image_drink}/>
+                            </TouchableOpacity>
+                        </View>
+                        <View style = {styles.des}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Desert')}>
+                                <ReactImage source={require('../pngs/variaty/desert.png')} style = {styles.image_desert}/>
+                            </TouchableOpacity>
+                        </View>
+
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Allergies')} style={styles.button}>
+                            <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
+                        </TouchableOpacity>
+                    </View>
+                </ScrollContainer>
             );
-        } else {
-            return <AppLoading />;
-        }
+        // } else {
+        //     return <AppLoading />;
+        // }
     }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        height: 1000,
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'flex-start',
+        // justifyContent: 'space-around',
+    },
+    scrollView: {
+        flex : 1,
+        backgroundColor: 'pink',
     },
     headn: {
         position: 'relative',
@@ -83,8 +121,55 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         top: '2%',
     },
-    image: {
+    zavtr_fish: {
+        flexDirection: 'row',
+        top: '30%',
+    },
+    image_zavtr: {
         top: '0%',
+        left: '-10%',
+        width: 136,
+        height: 136,
+    },
+    image_fish: {
+        top: '0%',
+        left: '10%',
+        width: 136,
+        height: 136,
+    },
+    garn_meat: {
+        flexDirection: 'row',
+        top: '35%',
+    },
+    image_garnish: {
+        left: '-10%',
+        width: 136,
+        height: 136,
+    },
+    image_meat: {
+        left: '10%',
+        width: 136,
+        height: 136,
+    },
+    soup_drink: {
+        flexDirection: 'row',
+        top: '40%',
+    },
+    image_soup: {
+        left: '-10%',
+        width: 136,
+        height: 136,
+    },
+    image_drink: {
+        left: '10%',
+        width: 136,
+        height: 136,
+    },
+    des: {
+        flexDirection: 'row',
+        top: "45%",
+    },
+    image_desert: {
         left: '0%',
         width: 136,
         height: 136,
@@ -93,7 +178,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#22A45D",
         borderRadius: 8,
         width: '80%',
-        height: '6%',
+        height: '5.5%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
@@ -101,7 +186,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        top: '30%',
     },
     buttonText: {
         fontSize: 14,

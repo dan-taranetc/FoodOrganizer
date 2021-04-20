@@ -12,12 +12,11 @@ let customFonts = {
 export default class Starts extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
+        this.state = {email: '', password: ''};
     }
 
     state = {
+        weight: '',
         fontsLoaded: false,
     };
 
@@ -30,34 +29,36 @@ export default class Starts extends Component {
         this._loadFontsAsync();
     }
 
-
     render() {
         // const [number, onChangeNumber] = React.useState(null)
+        let weight = 'kkk'
         return (
             <View style={styles.container}>
                 <Text style = {styles.headn}>
-                    ВВЕДИТЕ СВОЕ ИМЯ И АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ
+                    АВТОРИЗАЦИЯ
                 </Text>
                 <TextInput
                     style={styles.input1}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="Имя"
-                    keyboardType="default"
-                />
-                <TextInput
-                    style={styles.input2}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
                     placeholder="Email"
                     keyboardType="email-address"
+                    onChangeText={email => this.setState({ email })}
+                    value={this.state.email}
                 />
-                <ReactImage source={require('../pngs/vinograd_2.png')} style = {styles.image}/>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupAwh')} style={styles.button}>
+                <TextInput
+                    secureTextEntry={true}
+                    style={styles.input2}
+                    placeholder="Password"
+                    onChangeText={password => this.setState({ password })}
+                    value={this.state.password}
+                    keyboardType="default"
+                />
+                <Text style = {styles.pass}>
+                    Забыли пароль?
+                </Text>
+
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Settings')} style={styles.button}>
                     <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
                 </TouchableOpacity>
-
-
             </View>
         );
     }
@@ -81,6 +82,17 @@ const styles = StyleSheet.create({
         top: '5%',
         left: 0,
     },
+    pass: {
+        position: 'relative',
+        fontFamily: 'Lato-Regular',
+        fontSize: 17,
+        width: '70%',
+        height: 'auto',
+        textAlign: 'center',
+        top: '-10%',
+        left: 0,
+        color: '#707070'
+    },
     input1: {
         height:'5%',
         width: '80%',
@@ -96,14 +108,14 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '0%',
+        top: '-2%',
         borderColor: '#22A45D',
     },
     image: {
-        top: '0%',
+        top: '2%',
         left: '0%',
-        width: 121,
-        height: 166,
+        width: 90,
+        height: 125,
     },
     button: {
         backgroundColor: "#22A45D",
@@ -117,7 +129,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '0%',
+        bottom: '-2%',
     },
     buttonText: {
         fontFamily: 'Lato-Black',

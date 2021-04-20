@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput,TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import {Image as ReactImage} from 'react-native';
 import * as Font from 'expo-font';
 
@@ -10,60 +10,67 @@ let customFonts = {
 };
 
 export default class Starts extends Component {
-
     constructor(props) {
         super(props);
-        this.state = {
-
-        };
+        this.state = {sex: '', name: '', email: '', password: ''};
     }
 
-    // state = {
-    //     fontsLoaded: false,
-    // };
-    //
-    // async _loadFontsAsync() {
-    //     await Font.loadAsync(customFonts);
-    //     this.setState({ fontsLoaded: true });
-    // }
-    //
-    // componentDidMount() {
-    //     this._loadFontsAsync();
-    // }
+    state = {
+        weight: '',
+        fontsLoaded: false,
+    };
+
+    async _loadFontsAsync() {
+        await Font.loadAsync(customFonts);
+        this.setState({ fontsLoaded: true });
+    }
+
+    componentDidMount() {
+        this._loadFontsAsync();
+    }
 
     render() {
         // const [number, onChangeNumber] = React.useState(null)
+        let weight = 'kkk'
         return (
             <View style={styles.container}>
                 <Text style = {styles.headn}>
-                    ВВЕДИТЕ СВОЙ ВОЗРАСТ, ПРИМЕРНЫЙ ВЕС И РОСТ
+                    РЕГИСТРАЦИЯ
                 </Text>
                 <TextInput
                     style={styles.input1}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="Возраст"
+                    placeholder="Пол"
                     keyboardType="default"
+                    onChangeText={sex => this.setState({ sex })}
+                    value={this.state.sex}
                 />
                 <TextInput
                     style={styles.input2}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="Вес"
+                    placeholder="Имя"
                     keyboardType="default"
+                    onChangeText={name => this.setState({ name })}
+                    value={this.state.name}
                 />
                 <TextInput
                     style={styles.input3}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="Рост"
+                    placeholder="Email"
+                    keyboardType="email-address"
+                    onChangeText={email => this.setState({ email })}
+                    value={this.state.email}
+                />
+                <TextInput
+                    style={styles.input4}
+                    placeholder="Пароль"
+                    onChangeText={password => this.setState({ password })}
+                    value={this.state.password}
                     keyboardType="default"
                 />
-                <ReactImage source={require('../pngs/tarelochka.png')} style = {styles.image}/>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Endfirst')} style={styles.button}>
+                <Text style = {styles.PS}>
+                    Нажимая «продолжить», Вы подтверждаете,что прочитали Политику конфиденциальности и согласны с Условиями оказания услуг
+                </Text>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupAwh')} style={styles.button}>
                     <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
                 </TouchableOpacity>
-
 
 
             </View>
@@ -79,16 +86,25 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         justifyContent: 'space-around',
     },
+    PS: {
+        position: 'relative',
+        fontFamily: 'Lato-Regular',
+        fontSize: 16,
+        width: '90%',
+        height: 'auto',
+        textAlign: 'left',
+        top: '-6%',
+        left: '7%',
+    },
     headn: {
-        display: 'flex',
         position: 'relative',
         fontFamily: 'Lato-Bold',
-        fontSize: 17,
-        width: '70%',
+        fontSize: 16,
+        width: '90%',
         height: 'auto',
         textAlign: 'center',
-        top: '5%',
-        left: 0,
+        top: '2%',
+        left: '0%',
     },
     input1: {
         height:'5%',
@@ -96,7 +112,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '4%',
+        top: '0%',
         borderColor: '#22A45D',
     },
     input2: {
@@ -105,7 +121,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '0%',
+        top: '-3%',
         borderColor: '#22A45D',
     },
     input3: {
@@ -114,14 +130,23 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '-4%',
+        top: '-6%',
+        borderColor: '#22A45D',
+    },
+    input4: {
+        height: '5%',
+        width: '80%',
+        borderBottomWidth: 2,
+        fontFamily: 'Lato-Regular',
+        fontSize: 14,
+        top: '-9%',
         borderColor: '#22A45D',
     },
     image: {
         top: '0%',
         left: '0%',
-        width: 148,
-        height: 148,
+        width: 121,
+        height: 166,
     },
     button: {
         backgroundColor: "#22A45D",
@@ -135,13 +160,14 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '1%',
+        bottom: '0%',
     },
     buttonText: {
+        fontFamily: 'Lato-Black',
         fontSize: 14,
         color: '#fff',
-        fontFamily: 'Lato-Bold',
         alignSelf: "center",
         top: '30%',
     },
+
 });
