@@ -4,21 +4,16 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as Font from 'expo-font';
 import Start from './registration screens/1 - Start.js';
+import Registration from './registration screens/2 - Registration.js';
+import Authorization from './registration screens/2.1 - Authorization.js';
 import SignupNM from './registration screens/2 - SignupNM.js';
 import SignupAwh from './registration screens/3 - SignupAwh.js';
 import Endfirst from './registration screens/4 - End1.js';
+import Settings from './registration screens/10 - Settings.js';
 import SignupVariaty from './registration screens/5 - SignupVariaty.js';
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
-
-
-let customFonts = {
-    'Lato-Black': require('/Users/taranecvadim/Programming/Expo/fo2/fonts/Lato/Lato-Black.ttf'),
-    'Lato-Bold': require('/Users/taranecvadim/Programming/Expo/fo2/fonts/Lato/Lato-Bold.ttf'),
-    'Lato-Regular': require('/Users/taranecvadim/Programming/Expo/fo2/fonts/Lato/Lato-Regular.ttf'),
-};
-
 
 class App extends React.Component {
     state = {
@@ -43,6 +38,14 @@ class App extends React.Component {
                         component={Start}
                     />
                     <Stack.Screen
+                        name="Registration"
+                        component={Registration}
+                    />
+                    <Stack.Screen
+                        name="Authorization"
+                        component={Authorization}
+                    />
+                    <Stack.Screen
                         name="SignupNM"
                         component={SignupNM}
                     />
@@ -57,6 +60,10 @@ class App extends React.Component {
                     <Stack.Screen
                         name="SignupVariaty"
                         component={SignupVariaty}
+                    />
+                    <Stack.Screen
+                        name="Settings"
+                        component={Settings}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

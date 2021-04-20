@@ -39,12 +39,11 @@ export default class Starts extends Component {
                     <Text style={styles.grit}>
                         ДОБРО ПОЖАЛОВАТЬ В {'\n'} FOOD ORGANIZER!
                     </Text>
-                    <Text style={styles.instructions}>
-                        Давайте пройдем регистрацию
-                    </Text>
-
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupNM')} style={styles.button}>
-                        <Text style={styles.buttonText}>НАЧАТЬ</Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Registration')} style={styles.button_registration}>
+                        <Text style={styles.buttonText}>РЕГИСТРАЦИЯ</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Authorization')} style={styles.button}>
+                        <Text style={styles.buttonText}>ВХОД</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -100,6 +99,20 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         shadowOpacity: 0.25,
         bottom: '-1%',
+    },
+    button_registration:{
+        backgroundColor: "#22A45D",
+        borderRadius: 8,
+        width: '80%',
+        height: '6%',
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 10,
+        shadowOpacity: 0.25,
+        bottom: '-7%',
     },
     buttonText: {
         fontFamily: 'Lato-Black',
