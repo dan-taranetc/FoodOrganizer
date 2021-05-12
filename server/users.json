@@ -1,0 +1,80 @@
+{
+  "admin": {
+    "password": "admin"
+  },
+  "Данил": {
+    "login": "Данил",
+    "password": "данил",
+    "sex": "Данил",
+    "age": "Данил",
+    "weight": "Данил",
+    "height": "Данил",
+    "deserts": {
+      "bakery": "-",
+      "confectionary": "-",
+      "chocolate": "-"
+    },
+    "drinks": {
+      "juice": "-",
+      "tea": "-",
+      "coffee": "-",
+      "cocoa": "-",
+      "milk": "-"
+    },
+    "fish": {
+      "treska": "-",
+      "mintai": "-",
+      "nerka": "-",
+      "forel": "-",
+      "semga": "-",
+      "losos": "-",
+      "skumbria": "-"
+    },
+    "garnish": {
+      "potatoes": "-",
+      "vegetables": "-",
+      "cereals": "-",
+      "pasta": "-",
+      "salad": "-"
+    },
+    "meat": {
+      "govyadina": "-",
+      "baranina": "-",
+      "svinina": "-",
+      "indeyka": "-",
+      "kuritsa": "-"
+    },
+    "soup": {
+      "borsh": "-",
+      "kuriniy": "-",
+      "solyanka": "-",
+      "shi": "-",
+      "rassolnik": "-",
+      "uha": "-",
+      "gorohoviy": "-"
+    },
+    "breakfast": {
+      "yaichnitsa": "-",
+      "omlet": "-",
+      "kasha": "-",
+      "sirniki": "-",
+      "bliny": "-",
+      "oladi": "-"
+    },
+    "diseases": {
+      "gastritis": "-",
+      "stomach_ulcer": "-",
+      "intestine_ulcer": "-",
+      "pancreatitis": "-",
+      "diabetes": "-"
+    },
+    "allergies": {
+      "milk_product": "-",
+      "wheat": "-",
+      "citrus": "-",
+      "meat_product": "-",
+      "fish_product": "-",
+      "nut": "-"
+    }
+  }
+}
