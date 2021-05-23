@@ -14,13 +14,12 @@ let customFonts = {
 
 export default class Starts extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-    }
-
+    renderElement(){
+        if(global.person.sex== 'М')
+            return 88.36 + (13.4 * global.person.weight) + (4.8 * global.person.height) - (5.7 * global.person.age)
+        if(global.person.sex== 'Ж')
+            return 447,6 + (9.2 * global.person.weight) + (3.1 * global.person.height) - (4.3 * global.person.age)
+}
     state = {
         fontsLoaded: false,
     };
@@ -29,7 +28,6 @@ export default class Starts extends Component {
         await Font.loadAsync(customFonts);
         this.setState({ fontsLoaded: true });
     }
-
     componentDidMount() {
         this._loadFontsAsync();
     }
@@ -39,39 +37,29 @@ export default class Starts extends Component {
             return (
                 <View style={styles.container}>
                     <Text style = {styles.headn}>
-                        НАСТРОЙКИ
+                        Здравствуйте
                     </Text>
+
                     <View
                         style={[styles.box1, { backgroundColor: "rgba(52, 52, 52, 0.2)" }]}
                     />
                     <Text style = {styles.text1}>
-                        Имя:
+                        Потребленные каллории: {global.person.calories}
                     </Text>
                     <View
                         style={[styles.box2, { backgroundColor: "rgba(52, 52, 52, 0.2)" }]}
                     />
                     <Text style = {styles.text2}>
-                        Рост:
-                    </Text>
-
-                    <View
-                        style={[styles.box3, { backgroundColor: "rgba(52, 52, 52, 0.2)" }]}
-                    />
-                    <Text style = {styles.text3}>
-                        Вес:
-                    </Text>
-
-                    <View
-                        style={[styles.box4, { backgroundColor: "rgba(52, 52, 52, 0.2)" }]}
-                    />
-                    <Text style = {styles.text4}>
-                        Email:
+                        Рекомендуемое количество: { this.renderElement() }
                     </Text>
                     <Text style = {styles.text}>
-                        Вас не устраивает выбор исключенных продуктов?
+                        Выберите нужный вариант:
                     </Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')} style={styles.button}>
-                        <Text style={styles.buttonText}>ПРОЙТИ РЕГИСТРАЦИЮ ЗАНОВО</Text>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SelfCooking')} style={styles.button1}>
+                        <Text style={styles.buttonText}>Самостоятельная готовка</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')} style={styles.button2}>
+                        <Text style={styles.buttonText}>Самостоятельная готовка</Text>
                     </TouchableOpacity>
                 </View>
             );
@@ -96,12 +84,12 @@ const styles = StyleSheet.create({
         width: '70%',
         height: 'auto',
         textAlign: 'left',
-        top: '11%',
-        left: '1%',
+        top: '13%',
+        left: '-1%',
         color: '#22A45D'
     },
     box1: {
-        width: '70%',
+        width: '90%',
         height: '7%',
         left: '0%',
         top: '10%',
@@ -109,95 +97,78 @@ const styles = StyleSheet.create({
         borderColor: 'green',
     },
     box2: {
-        width: '70%',
+        width: '90%',
         height: '7%',
         left: '0%',
-        top: '1%',
-        borderRadius: 12,
-        borderColor: 'green',
-    },
-    box3: {
-        width: '70%',
-        height: '7%',
-        left: '0%',
-        top: '-8%',
-        borderRadius: 12,
-        borderColor: 'green',
-    },
-    box4: {
-        width: '70%',
-        height: '7%',
-        left: '0%',
-        top: '-17%',
+        top: '-5%',
         borderRadius: 12,
         borderColor: 'green',
     },
     text: {
-        fontFamily: 'Lato-Light',
+        fontFamily: 'Lato-Bold',
         fontSize: 22,
         width: '90%',
         left: '0%',
         height: 'auto',
         textAlign: 'center',
-        top: '-15%',
+        top: '19%',
     },
     text1: {
         fontFamily: 'Lato-Regular',
         fontSize: 20,
         width: '90%',
-        left: '12%',
+        left: '4%',
         height: 'auto',
         textAlign: 'left',
-        top: '1%',
+        top: '-2%',
     },
     text2: {
         fontFamily: 'Lato-Regular',
         fontSize: 20,
         width: '90%',
-        left: '12%',
-        height: 'auto',
-        textAlign: 'left',
-        top: '-8%',
-    },
-    text3: {
-        fontFamily: 'Lato-Regular',
-        fontSize: 20,
-        width: '90%',
-        left: '12%',
+        left: '4%',
         height: 'auto',
         textAlign: 'left',
         top: '-17%',
     },
-    text4: {
-        fontFamily: 'Lato-Regular',
-        fontSize: 20,
-        width: '90%',
-        left: '12%',
-        height: 'auto',
-        textAlign: 'left',
-        top: '-26%',
-    },
-    button: {
+    button1: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
-        width: '35%',
+        width: '40%',
         height: '10%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
             height: 3
         },
-        top: '-15%',
         shadowRadius: 10,
         shadowOpacity: 0.25,
         bottom: '-1%',
+        left: '-23%',
+        top: '14%'
+    },
+    button2: {
+        backgroundColor: "#22A45D",
+        borderRadius: 8,
+        width: '40%',
+        height: '10%',
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        top: '-3%',
+        shadowRadius: 10,
+        shadowOpacity: 0.25,
+        bottom: '-1%',
+        left: '23%'
     },
     buttonText: {
-        fontSize: 14,
+        fontSize: 16,
         fontFamily: 'Lato-Bold',
         color: '#fff',
         alignSelf: "center",
         textAlign: 'center',
-        top: '20%',
+        top: '30%',
     },
 });

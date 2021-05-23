@@ -18,20 +18,26 @@ import Drinks from './registration screens/5 - drinks.js';
 import Desert from './registration screens/5 - desert.js';
 import Allergies from './registration screens/6 - Allergies.js';
 import Diseases from './registration screens/7 - Diseases.js';
-
+import MainScreen from './registration screens/MainScreen.js';
 import Settings from './registration screens/M4 - Settings.js';
+import SelfCooking from './registration screens/SelfCooking - 1.js';
+import Breakfast from './registration screens/Breakfast.js';
+import Dinner from './registration screens/Dinner.js';
+import LateDinner from './registration screens/LateDinner.js';
 import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 
-global.url = ''
+global.url = 'http://8ddf51a48b49.ngrok.io'
 global.person = {
     'login': '',
     'password': '',
-    'sex': '',
-    'age': '',
-    'weight': '',
-    'height': '',
+    'sex': 'Ж',
+    'age': '18',
+    'weight': '80',
+    'height': '180',
+    'calories': '25',
+    'recommendent_calories':'0',
     'deserts': {
         'bakery': '-',
         'confectionary': '-',
@@ -121,8 +127,12 @@ class App extends React.Component {
                     <Stack.Screen name="Desert" component={Desert}/>
                     <Stack.Screen name="Allergies" component={Allergies}/>
                     <Stack.Screen name="Diseases" component={Diseases}/>
-
+                    <Stack.Screen name="MainScreen" component={MainScreen}/>
                     <Stack.Screen name="Settings" component={Settings}/>
+                    <Stack.Screen name="SelfCooking" component={SelfCooking}/>
+                    <Stack.Screen name="Breakfast" component={Breakfast}/>
+                    <Stack.Screen name="Dinner" component={Dinner}/>
+                    <Stack.Screen name="LateDinner" component={LateDinner}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );

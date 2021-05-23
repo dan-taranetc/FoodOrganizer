@@ -32,7 +32,7 @@ export default class Starts extends Component {
             let text = await response.text();
             if (text === '0'){
                 console.log('Person authorized')
-                this.props.navigation.navigate('Settings')
+                this.props.navigation.navigate('MainScreen')
             }else{
                 console.log('Person send wrong log/pass')
                 alert("Неправильно введен логин или пароль.")
