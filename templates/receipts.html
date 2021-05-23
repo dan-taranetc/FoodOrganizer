@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta>
+    <title>Food Organizer</title>
+</head>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Что</th>
+        <th>Ингредиенты</th>
+        <th>Сколько</th>
+        <th>Сколько по факту нужно</th>
+        <th>Приблизительная цена</th>
+        <th>Где купить</th>
+        <th>Белки</th>
+        <th>Жиры</th>
+        <th>Углеводы</th>
+        <th>Каллорийность</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for row in df %}
+            {% for value in row %}
+                {% if value != '' %}
+                    <td>{{ value }}</td>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
+</html>

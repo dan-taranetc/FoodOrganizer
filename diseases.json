@@ -1,0 +1,274 @@
+{
+  "Diseases": {
+    "gastritis": {
+      "deserts": {
+        "bakery": "-",
+        "confectionary": "+",
+        "chocolate": "-"
+      },
+      "drinks": {
+        "juice": "-",
+        "tea": "-",
+        "coffee": "-",
+        "cocoa": "-",
+        "milk": "-"
+      },
+      "fish": {
+        "treska": "-",
+        "mintai": "-",
+        "nerka": "-",
+        "forel": "-",
+        "semga": "-",
+        "losos": "-",
+        "skumbria": "-"
+      },
+      "garnish": {
+        "potatoes": "-",
+        "vegetables": "-",
+        "cereals": "-",
+        "pasta": "-",
+        "salad": "-"
+      },
+      "meat": {
+        "govyadina": "-",
+        "baranina": "-",
+        "svinina": "-",
+        "indeyka": "-",
+        "kuritsa": "-"
+      },
+      "soup": {
+        "borsh": "-",
+        "kuriniy": "-",
+        "solyanka": "-",
+        "shi": "-",
+        "rassolnik": "-",
+        "uha": "-",
+        "gorohoviy": "-"
+      },
+      "breakfast": {
+        "yaichnitsa": "-",
+        "omlet": "-",
+        "kasha": "-",
+        "sirniki": "-",
+        "bliny": "-",
+        "oladi": "-"
+      }
+    },
+    "stomach_ulcer": {
+      "deserts": {
+        "bakery": "-",
+        "confectionary": "+",
+        "chocolate": "-"
+      },
+      "drinks": {
+        "juice": "-",
+        "tea": "-",
+        "coffee": "-",
+        "cocoa": "-",
+        "milk": "-"
+      },
+      "fish": {
+        "treska": "-",
+        "mintai": "-",
+        "nerka": "-",
+        "forel": "-",
+        "semga": "-",
+        "losos": "-",
+        "skumbria": "-"
+      },
+      "garnish": {
+        "potatoes": "-",
+        "vegetables": "-",
+        "cereals": "-",
+        "pasta": "-",
+        "salad": "-"
+      },
+      "meat": {
+        "govyadina": "-",
+        "baranina": "-",
+        "svinina": "-",
+        "indeyka": "-",
+        "kuritsa": "-"
+      },
+      "soup": {
+        "borsh": "-",
+        "kuriniy": "-",
+        "solyanka": "-",
+        "shi": "-",
+        "rassolnik": "-",
+        "uha": "-",
+        "gorohoviy": "-"
+      },
+      "breakfast": {
+        "yaichnitsa": "-",
+        "omlet": "-",
+        "kasha": "-",
+        "sirniki": "-",
+        "bliny": "-",
+        "oladi": "-"
+      }
+    },
+    "intestine_ulcer": {
+      "deserts": {
+        "bakery": "-",
+        "confectionary": "+",
+        "chocolate": "-"
+      },
+      "drinks": {
+        "juice": "-",
+        "tea": "-",
+        "coffee": "-",
+        "cocoa": "-",
+        "milk": "-"
+      },
+      "fish": {
+        "treska": "-",
+        "mintai": "-",
+        "nerka": "-",
+        "forel": "-",
+        "semga": "-",
+        "losos": "-",
+        "skumbria": "-"
+      },
+      "garnish": {
+        "potatoes": "-",
+        "vegetables": "-",
+        "cereals": "-",
+        "pasta": "-",
+        "salad": "-"
+      },
+      "meat": {
+        "govyadina": "-",
+        "baranina": "-",
+        "svinina": "-",
+        "indeyka": "-",
+        "kuritsa": "-"
+      },
+      "soup": {
+        "borsh": "-",
+        "kuriniy": "-",
+        "solyanka": "-",
+        "shi": "-",
+        "rassolnik": "-",
+        "uha": "-",
+        "gorohoviy": "-"
+      },
+      "breakfast": {
+        "yaichnitsa": "-",
+        "omlet": "-",
+        "kasha": "-",
+        "sirniki": "-",
+        "bliny": "-",
+        "oladi": "-"
+      }
+    },
+    "pancreatitis": {
+      "deserts": {
+        "bakery": "-",
+        "confectionary": "+",
+        "chocolate": "-"
+      },
+      "drinks": {
+        "juice": "-",
+        "tea": "-",
+        "coffee": "-",
+        "cocoa": "-",
+        "milk": "-"
+      },
+      "fish": {
+        "treska": "-",
+        "mintai": "-",
+        "nerka": "-",
+        "forel": "-",
+        "semga": "-",
+        "losos": "-",
+        "skumbria": "-"
+      },
+      "garnish": {
+        "potatoes": "-",
+        "vegetables": "-",
+        "cereals": "-",
+        "pasta": "-",
+        "salad": "-"
+      },
+      "meat": {
+        "govyadina": "-",
+        "baranina": "-",
+        "svinina": "-",
+        "indeyka": "-",
+        "kuritsa": "-"
+      },
+      "soup": {
+        "borsh": "-",
+        "kuriniy": "-",
+        "solyanka": "-",
+        "shi": "-",
+        "rassolnik": "-",
+        "uha": "-",
+        "gorohoviy": "-"
+      },
+      "breakfast": {
+        "yaichnitsa": "-",
+        "omlet": "-",
+        "kasha": "-",
+        "sirniki": "-",
+        "bliny": "-",
+        "oladi": "-"
+      }
+    },
+    "diabetes": {
+      "deserts": {
+        "bakery": "-",
+        "confectionary": "+",
+        "chocolate": "-"
+      },
+      "drinks": {
+        "juice": "-",
+        "tea": "-",
+        "coffee": "-",
+        "cocoa": "-",
+        "milk": "-"
+      },
+      "fish": {
+        "treska": "-",
+        "mintai": "-",
+        "nerka": "-",
+        "forel": "-",
+        "semga": "-",
+        "losos": "-",
+        "skumbria": "-"
+      },
+      "garnish": {
+        "potatoes": "-",
+        "vegetables": "-",
+        "cereals": "-",
+        "pasta": "-",
+        "salad": "-"
+      },
+      "meat": {
+        "govyadina": "-",
+        "baranina": "-",
+        "svinina": "-",
+        "indeyka": "-",
+        "kuritsa": "-"
+      },
+      "soup": {
+        "borsh": "-",
+        "kuriniy": "-",
+        "solyanka": "-",
+        "shi": "-",
+        "rassolnik": "-",
+        "uha": "-",
+        "gorohoviy": "-"
+      },
+      "breakfast": {
+        "yaichnitsa": "-",
+        "omlet": "-",
+        "kasha": "-",
+        "sirniki": "-",
+        "bliny": "-",
+        "oladi": "-"
+      }
+    }
+  }
+}
