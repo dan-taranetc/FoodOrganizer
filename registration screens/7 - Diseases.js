@@ -38,7 +38,7 @@ export default class Starts extends React.Component {
             console.log('Reg server error')
             alert("Ошибка cервера: " + response.status + "\nПриносим извинения");
         }
-        this.props.navigation.navigate('Settings')
+        this.props.navigation.navigate('MainScreen')
     }
 
     onSelectionsChange = (selectedFruits) => {

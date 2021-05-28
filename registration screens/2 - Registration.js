@@ -56,9 +56,9 @@ export default class Starts extends Component {
         this._loadFontsAsync();
     }
     componentDidUpdate() {
-        global.person.login = this.state.login;
-        global.person.password = this.state.password;
-        global.person.sex = this.state.sex;
+        global.person.Userdata.login = this.state.login;
+        global.person.Userdata.password = this.state.password;
+        global.person.Userdata.sex = this.state.sex;
     }
     render() {
         // const [number, onChangeNumber] = React.useState(null)

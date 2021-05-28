@@ -17,7 +17,7 @@ export default class Starts extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            menu: '',
         };
     }
 
@@ -41,15 +41,21 @@ export default class Starts extends Component {
                     <Text style = {styles.text}>
                         Выберите время приема пищи:
                     </Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Breakfast')} style={styles.button1}>
-                        <Text style={styles.buttonText}>Завтрак</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Dinner')} style={styles.button2}>
-                        <Text style={styles.buttonText}>Обед</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('LateDinner')} style={styles.button3}>
-                        <Text style={styles.buttonText}>Ужин</Text>
-                    </TouchableOpacity>
+                    <View style = {styles.but}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Breakfast')} style={styles.button1}>
+                            <Text style={styles.buttonText}>Завтрак</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Dinner')} style={styles.button2}>
+                            <Text style={styles.buttonText}>Обед</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('LateDinner')} style={styles.button3}>
+                            <Text style={styles.buttonText}>Ужин</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <Text>
+                        {global.breakfast['dishes'][0][0]}{'\n\n'}
+                        {global.breakfast['dishes'][1][0]}
+                    </Text>
                 </View>
             );
         } else {
@@ -79,18 +85,22 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: 'Lato-Bold',
-        fontSize: 22,
+        fontSize: 20,
         width: '90%',
         left: '0%',
         height: 'auto',
         textAlign: 'center',
-        top: '0%',
+        top: '-10%',
+    },
+    but: {
+        flexDirection: 'row',
+        top: '-110%',
     },
     button1: {
         backgroundColor: "#0F713B",
         borderRadius: 8,
         width: '30%',
-        height: '8%',
+        height: '270%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
@@ -98,48 +108,48 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        // bottom: '-1%',
         left: '-32%',
-        top: '-11%'
+        // top: '-11%'
     },
     button2: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
         width: '30%',
-        height: '8%',
+        height: '270%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
             height: 3
         },
-        top: '-37.3%',
+        // top: '-37.3%',
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        // bottom: '-1%',
         left: '0%'
     },
     button3: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
         width: '30%',
-        height: '8%',
+        height: '270%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
             height: 3
         },
-        top: '-63.5%',
+        // top: '-63.5%',
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        // bottom: '-1%',
         left: '32%'
     },
     buttonText: {
-        fontSize: 22,
+        fontSize: 17,
         fontFamily: 'Lato-Bold',
         color: '#fff',
         alignSelf: "center",
         textAlign: 'center',
-        top: '38%',
+        top: '30%',
     },
 });

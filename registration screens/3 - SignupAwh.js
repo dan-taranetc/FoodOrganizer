@@ -36,9 +36,9 @@ export default class Starts extends Component {
         this.props.navigation.navigate('Endfirst')
     }
     componentDidUpdate() {
-        global.person.age = this.state.age;
-        global.person.weight = this.state.weight;
-        global.person.height = this.state.height;
+        global.person.Userdata.age = this.state.age;
+        global.person.Userdata.weight = this.state.weight;
+        global.person.Userdata.height = this.state.height;
     }
 
     render() {

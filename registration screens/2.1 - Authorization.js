@@ -29,9 +29,11 @@ export default class Starts extends Component {
             })
         })
         if (response.ok) {
-            let text = await response.text();
-            if (text === '0'){
+            let text = await response.json();
+            console.log(text)
+            if (text != 0){
                 console.log('Person authorized')
+                global.person = JSON.parse(JSON.stringify(text))
                 this.props.navigation.navigate('MainScreen')
             }else{
                 console.log('Person send wrong log/pass')
@@ -79,7 +81,7 @@ export default class Starts extends Component {
                     Забыли пароль?
                 </Text>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Registration')} style = {styles.reg_again}>
-                    <Text style = {styles.reg_again_text}>Зарегестрироваться заново</Text>
+                    <Text style = {styles.reg_again_text}>Зарегистрироваться заново</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => this.authorizate(this.state.login, this.state.password)} style={styles.button}>

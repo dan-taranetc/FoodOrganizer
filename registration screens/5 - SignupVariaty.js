@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity,} from 'react-native';
 import {Image as ReactImage} from 'react-native';
-import ScrollContainer from '/Users/artemsmakov/project/FoodOrganizer/special forms/ScrollContainer.js';
+import ScrollContainer from '../special forms/ScrollContainer.js';
 // import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 

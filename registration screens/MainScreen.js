@@ -15,10 +15,10 @@ let customFonts = {
 export default class Starts extends Component {
 
     renderElement(){
-        if(global.person.sex== 'М')
-            return 88.36 + (13.4 * global.person.weight) + (4.8 * global.person.height) - (5.7 * global.person.age)
-        if(global.person.sex== 'Ж')
-            return 447,6 + (9.2 * global.person.weight) + (3.1 * global.person.height) - (4.3 * global.person.age)
+        if(global.person.Userdata.sex === 'М')
+            return Math.round(88.36 + (13.4 * global.person.Userdata.weight) + (4.8 * global.person.Userdata.height) - (5.7 * global.person.Userdata.age))
+        if(global.person.Userdata.sex === 'Ж')
+            return Math.round(447.6 + (9.2 * global.person.Userdata.weight) + (3.1 * global.person.Userdata.height) - (4.3 * global.person.Userdata.age))
 }
     state = {
         fontsLoaded: false,
@@ -55,12 +55,14 @@ export default class Starts extends Component {
                     <Text style = {styles.text}>
                         Выберите нужный вариант:
                     </Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SelfCooking')} style={styles.button1}>
-                        <Text style={styles.buttonText}>Самостоятельная готовка</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')} style={styles.button2}>
-                        <Text style={styles.buttonText}>Самостоятельная готовка</Text>
-                    </TouchableOpacity>
+                    <View style = {styles.but}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('SelfCooking')} style={styles.button1}>
+                            <Text style={styles.buttonText}>Самостоятельная готовка</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')} style={styles.button2}>
+                            <Text style={styles.buttonText}>Самостоятельная готовка</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             );
         } else {
@@ -88,6 +90,10 @@ const styles = StyleSheet.create({
         left: '-1%',
         color: '#22A45D'
     },
+    but: {
+        flexDirection: 'row',
+        top: '-15%',
+    },
     box1: {
         width: '90%',
         height: '7%',
@@ -106,36 +112,36 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: 'Lato-Bold',
-        fontSize: 22,
+        fontSize: 20,
         width: '90%',
         left: '0%',
         height: 'auto',
         textAlign: 'center',
-        top: '19%',
+        top: '0%',
     },
     text1: {
         fontFamily: 'Lato-Regular',
-        fontSize: 20,
+        fontSize: 17,
         width: '90%',
         left: '4%',
         height: 'auto',
         textAlign: 'left',
-        top: '-2%',
+        top: '-5%',
     },
     text2: {
         fontFamily: 'Lato-Regular',
-        fontSize: 20,
+        fontSize: 17,
         width: '90%',
         left: '4%',
         height: 'auto',
         textAlign: 'left',
-        top: '-17%',
+        top: '-20%',
     },
     button1: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
         width: '40%',
-        height: '10%',
+        height: '200%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
@@ -143,28 +149,29 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        // bottom: '-1%',
         left: '-23%',
-        top: '14%'
+        // top: '14%'
     },
     button2: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
         width: '40%',
-        height: '10%',
+        height: '200%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
             height: 3
         },
-        top: '-3%',
+        // top: '-3%',
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        // bottom: '-1%',
         left: '23%'
     },
     buttonText: {
-        fontSize: 16,
+        fontSize: 14,
+        width: '90%',
         fontFamily: 'Lato-Bold',
         color: '#fff',
         alignSelf: "center",

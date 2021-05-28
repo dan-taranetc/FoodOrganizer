@@ -21,6 +21,25 @@ export default class Starts extends Component {
         };
     }
 
+    async breakfast(){
+        let response = await fetch(global.url+'/get_diet', {
+            method: 'POST',
+            body: JSON.stringify({
+                time: 1,
+                login: global.person.Userdata.login,
+            })
+        })
+        if (response.ok) {
+            let text = await response.json();
+            console.log(text)
+            global.breakfast = text
+            this.props.navigation.navigate('Breakfast')
+        } else {
+            console.log('Authorization server error')
+            alert("Ошибка cервера: " + response.status + "\nПриносим извинения");
+        }
+    }
+
     state = {
         fontsLoaded: false,
     };
@@ -41,7 +60,7 @@ export default class Starts extends Component {
                     <Text style = {styles.text}>
                         Выберите время приема пищи:
                     </Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Breakfast')} style={styles.button1}>
+                    <TouchableOpacity onPress={() => this.breakfast()} style={styles.button1}>
                         <Text style={styles.buttonText}>Завтрак</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Dinner')} style={styles.button2}>
@@ -69,22 +88,22 @@ const styles = StyleSheet.create({
     headn: {
         position: 'relative',
         fontFamily: 'Lato-Black',
-        fontSize: 20,
+        fontSize: 17,
         width: '70%',
         height: 'auto',
         textAlign: 'left',
-        top: '13%',
+        top: '0%',
         left: '-1%',
         color: '#22A45D'
     },
     text: {
         fontFamily: 'Lato-Bold',
-        fontSize: 22,
+        fontSize: 20,
         width: '90%',
         left: '0%',
         height: 'auto',
         textAlign: 'center',
-        top: '15%',
+        top: '5%',
     },
     button1: {
         backgroundColor: "#22A45D",
@@ -100,25 +119,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         bottom: '-1%',
         left: '0%',
-        top: '8%'
+        top: '0%'
     },
     button2: {
-        backgroundColor: "#22A45D",
-        borderRadius: 8,
-        width: '40%',
-        height: '10%',
-        shadowColor: '#000000',
-        shadowOffset: {
-            width: 0,
-            height: 3
-        },
-        top: '0%',
-        shadowRadius: 10,
-        shadowOpacity: 0.25,
-        bottom: '-1%',
-        left: '0%'
-    },
-    button3: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
         width: '40%',
@@ -134,8 +137,24 @@ const styles = StyleSheet.create({
         bottom: '-1%',
         left: '0%'
     },
+    button3: {
+        backgroundColor: "#22A45D",
+        borderRadius: 8,
+        width: '40%',
+        height: '10%',
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        top: '-16%',
+        shadowRadius: 10,
+        shadowOpacity: 0.25,
+        bottom: '-1%',
+        left: '0%'
+    },
     buttonText: {
-        fontSize: 22,
+        fontSize: 17,
         fontFamily: 'Lato-Bold',
         color: '#fff',
         alignSelf: "center",
