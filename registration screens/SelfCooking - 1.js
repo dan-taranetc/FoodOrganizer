@@ -40,6 +40,44 @@ export default class Starts extends Component {
         }
     }
 
+    async dinner(){
+        let response = await fetch(global.url+'/get_diet', {
+            method: 'POST',
+            body: JSON.stringify({
+                time: 2,
+                login: global.person.Userdata.login,
+            })
+        })
+        if (response.ok) {
+            let text = await response.json();
+            console.log(text)
+            global.breakfast = text
+            this.props.navigation.navigate('Dinner')
+        } else {
+            console.log('Authorization server error')
+            alert("Ошибка cервера: " + response.status + "\nПриносим извинения");
+        }
+    }
+
+    async late_dinner(){
+        let response = await fetch(global.url+'/get_diet', {
+            method: 'POST',
+            body: JSON.stringify({
+                time: 3,
+                login: global.person.Userdata.login,
+            })
+        })
+        if (response.ok) {
+            let text = await response.json();
+            console.log(text)
+            global.breakfast = text
+            this.props.navigation.navigate('LateDinner')
+        } else {
+            console.log('Authorization server error')
+            alert("Ошибка cервера: " + response.status + "\nПриносим извинения");
+        }
+    }
+
     state = {
         fontsLoaded: false,
     };
@@ -63,10 +101,10 @@ export default class Starts extends Component {
                     <TouchableOpacity onPress={() => this.breakfast()} style={styles.button1}>
                         <Text style={styles.buttonText}>Завтрак</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Dinner')} style={styles.button2}>
+                    <TouchableOpacity onPress={() => this.dinner()} style={styles.button2}>
                         <Text style={styles.buttonText}>Обед</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('LateDinner')} style={styles.button3}>
+                    <TouchableOpacity onPress={() => this.late_dinner()} style={styles.button3}>
                         <Text style={styles.buttonText}>Ужин</Text>
                     </TouchableOpacity>
                 </View>

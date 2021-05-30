@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import SelectMultiple from 'react-native-select-multiple'
 
-const fruits = ['Треска', 'Минтай', 'Нерка', 'Форель', 'Семга', 'Лосось', 'Скумбрия']
+const fruits = ['Треска', 'Минтай', 'Нерка', 'Форель', 'Семга', 'Лосось', 'Сельдь', 'Тунец']
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -46,25 +46,28 @@ export default class Starts extends React.Component {
         if(this.state.selectedFruits) {
             this.state.selectedFruits.forEach(function (item) {
                 if (item.label.includes('Треска')) {
-                    global.person.fish.treska = '+';
+                    // global.person.fish.treska = '+';
                 }
                 if (item.label.includes('Форель')) {
-                    global.person.fish.forel = '+';
+                    // global.person.fish.forel = '+';
                 }
                 if (item.label.includes('Лосось')) {
-                    global.person.fish.losos = '+';
+                    global.person.Losos = '+';
                 }
                 if (item.label.includes('Минтай')) {
-                    global.person.fish.mintai = '+';
+                    // global.person.fish.mintai = '+';
                 }
                 if (item.label.includes('Нерка')) {
-                    global.person.fish.nerka = '+';
+                    // global.person.fish.nerka = '+';
                 }
                 if (item.label.includes('Семга')) {
-                    global.person.fish.semga = '+';
+                    // global.person.fish.semga = '+';
                 }
-                if (item.label.includes('Скумбрия')) {
-                    global.person.fish.skumbria = '+';
+                if (item.label.includes('Сельдь')) {
+                    global.person.Seld = '+';
+                }
+                if (item.label.includes('Тунец')) {
+                    global.person.Tunec = '+';
                 }
             });
         }

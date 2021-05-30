@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {Image as ReactImage} from 'react-native';
+import ScrollContainer from '../special forms/ScrollContainer.js';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 // import { AnimatedTabBarNavigator } from "react-native-animated-nav-tab-bar";
@@ -12,12 +13,11 @@ let customFonts = {
 };
 
 
-export default class Starts extends Component {
+export default class Starts extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            menu: '',
         };
     }
 
@@ -34,7 +34,61 @@ export default class Starts extends Component {
         this._loadFontsAsync();
     }
 
+    async dinner(){
+        let response = await fetch(global.url+'/get_diet', {
+            method: 'POST',
+            body: JSON.stringify({
+                time: 2,
+                login: global.person.Userdata.login,
+            })
+        })
+        if (response.ok) {
+            let text = await response.json();
+            console.log(text)
+            global.breakfast = text
+            this.props.navigation.navigate('Dinner')
+        } else {
+            console.log('Authorization server error')
+            alert("Ошибка cервера: " + response.status + "\nПриносим извинения");
+        }
+    }
+
+    async late_dinner(){
+        let response = await fetch(global.url+'/get_diet', {
+            method: 'POST',
+            body: JSON.stringify({
+                time: 3,
+                login: global.person.Userdata.login,
+            })
+        })
+        if (response.ok) {
+            let text = await response.json();
+            console.log(text)
+            global.breakfast = text
+            this.props.navigation.navigate('LateDinner')
+        } else {
+            console.log('Authorization server error')
+            alert("Ошибка cервера: " + response.status + "\nПриносим извинения");
+        }
+    }
+    async getreceipt(text){
+        global.receipt = text
+        this.props.navigation.navigate('Receipt')
+    }
+
     render() {
+        const list = global.breakfast['dishes']
+        for(var i = list.length - 1; i >= 0; i--) {
+            if(list[i] === 0) {
+                list.splice(i, 1);
+            }
+        }
+        const drinks = global.breakfast['drinks']
+        for(var j = drinks.length - 1; j >= 0; j--) {
+            if(drinks[j] === 0) {
+                drinks.splice(j, 1);
+            }
+        }
         if (this.state.fontsLoaded) {
             return (
                 <View style={styles.container}>
@@ -45,17 +99,34 @@ export default class Starts extends Component {
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Breakfast')} style={styles.button1}>
                             <Text style={styles.buttonText}>Завтрак</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Dinner')} style={styles.button2}>
+                        <TouchableOpacity onPress={() => this.dinner()} style={styles.button2}>
                             <Text style={styles.buttonText}>Обед</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('LateDinner')} style={styles.button3}>
+                        <TouchableOpacity onPress={() => this.late_dinner()} style={styles.button3}>
                             <Text style={styles.buttonText}>Ужин</Text>
                         </TouchableOpacity>
                     </View>
-                    <Text>
-                        {global.breakfast['dishes'][0][0]}{'\n\n'}
-                        {global.breakfast['dishes'][1][0]}
-                    </Text>
+                    <View style = {styles.list}>
+                        <ScrollContainer>
+                            {list.map((item) => (
+                                <View style = {styles.table}>
+                                    <TouchableOpacity onPress={() => this.getreceipt(item[6])}>
+                                        <Text style = {styles.blud}>{item[0]}</Text><
+                                        /TouchableOpacity>
+                                    <Text style = {styles.sostav}>{'Состав: '+item[1]}</Text>
+                                    <Text style = {styles.sostav}>{'Белки: '+item[2]+'г.'}</Text>
+                                    <Text style = {styles.sostav}>{'Жиры: '+item[3]+'г.'}</Text>
+                                    <Text style = {styles.sostav}>{'Углеводы: '+item[4]+'г.'}</Text>
+                                    <Text style = {styles.sostav}>{'Калорийность: '+item[5]+' ккал.'}{'\n'}</Text>
+                                </View>
+                            ))}
+                            {drinks.map((item) => (
+                                <View style = {styles.table}>
+                                    <Text style = {styles.drink}>{item}</Text>
+                                </View>
+                            ))}
+                        </ScrollContainer>
+                    </View>
                 </View>
             );
         } else {
@@ -79,22 +150,46 @@ const styles = StyleSheet.create({
         width: '70%',
         height: 'auto',
         textAlign: 'left',
-        top: '13%',
+        top: '0%',
         left: '-1%',
         color: '#22A45D'
     },
+    list: {
+        top: '15%',
+        left: '0%',
+        height: '75%',
+    },
+    table: {
+        width: '90%',
+    },
+    blud: {
+        fontSize: 15,
+        fontFamily: 'Lato-Bold',
+        left: '0%',
+
+    },
+    sostav: {
+        fontFamily: 'Lato-Regular',
+    },
+    drink: {
+        fontSize: 16,
+        fontFamily: 'Lato-Bold',
+    },
     text: {
+        position: 'absolute',
         fontFamily: 'Lato-Bold',
         fontSize: 20,
         width: '90%',
-        left: '0%',
+        left: '5%',
         height: 'auto',
         textAlign: 'center',
-        top: '-10%',
+        top: 100,
     },
     but: {
+        position: 'absolute',
         flexDirection: 'row',
-        top: '-110%',
+        left: '10%',
+        top: 150,
     },
     button1: {
         backgroundColor: "#0F713B",

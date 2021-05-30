@@ -47,13 +47,13 @@ export default class Starts extends React.Component {
         if(this.state.selectedFruits) {
             this.state.selectedFruits.forEach(function (item) {
                 if (item.label.includes('Выпечка')) {
-                    global.person.deserts.bakery = '+';
+                    // global.person.deserts.bakery = '+';
                 }
                 if (item.label.includes('Кондитерские изделия')) {
-                    global.person.deserts.confectionary = '+';
+                    // global.person.deserts.confectionary = '+';
                 }
                 if (item.label.includes('Шоколадные изделия')) {
-                    global.person.deserts.chocolate = '+';
+                    // global.person.deserts.chocolate = '+';
                 }
             });
         }

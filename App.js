@@ -13,7 +13,8 @@ import Zavtrak from './registration screens/5 - zavtrak.js';
 import Fish from './registration screens/5 - fish.js';
 import Garnish from './registration screens/5 - garnish.js';
 import Meat from './registration screens/5 - meat.js';
-import Soup from './registration screens/5 - soup.js';
+import Ovoshi from './registration screens/5 - ovoshi.js';
+import Fruits from './registration screens/5 - fruits.js';
 import Drinks from './registration screens/5 - drinks.js';
 import Desert from './registration screens/5 - desert.js';
 import Allergies from './registration screens/6 - Allergies.js';
@@ -24,12 +25,13 @@ import SelfCooking from './registration screens/SelfCooking - 1.js';
 import Breakfast from './registration screens/Breakfast.js';
 import Dinner from './registration screens/Dinner.js';
 import LateDinner from './registration screens/LateDinner.js';
+import Receipt from './registration screens/Receipt.js';
 import 'react-native-gesture-handler';
-
 const Stack = createStackNavigator();
 
-global.url = 'http://a2a8df1d2c29.ngrok.io'
+global.url = 'http://6f9c83d07eab.ngrok.io'
 global.breakfast = ''
+global.receipt = ''
 global.person = {
     "Userdata": {
         "login": "",
@@ -37,105 +39,114 @@ global.person = {
         "sex": "",
         "age": "",
         "weight": "",
-        "height": ""
-    },
-    "diseases": {
-        "gastritis": "-",
-        "stomach_ulcer": "-",
-        "intestine_ulcer": "-",
-        "pancreatitis": "-",
-        "diabetes": "-"
-    },
-    "allergies": {
-        "milk_product": "-",
-        "wheat": "-",
-        "citrus": "-",
-        "meat_product": "-",
-        "fish_product": "-",
-        "nut": "-"
+        "height": "",
+        "calories": "0",
     },
     "Kuritsa": "-",
-    "Avokado": "-",
-    "Banany": "-",
+    "Baranina": "-",
     "Bekon": "-",
-    "Brokkoli": "+",
-    "CHereshok sel'dereya": "-",
-    "CHernosliv": "-",
-    "CHesnok": "-",
     "Farsh": "-",
-    "Fasol'": "-",
     "Govyadina": "-",
-    "Grechka": "-",
-    "Griby": "-",
-    "Grusha": "-",
     "Indeyka": "-",
-    "Inzhir": "-",
-    "Izyum": "-",
-    "Jogurt": "-",
-    "Kabachok": "-",
-    "Kapusta": "-",
-    "Kartofel'": "-",
-    "Kesh'yu": "-",
-    "Klyukva": "-",
     "Kolbasa": "-",
-    "Korica": "-",
+    "Pechen'": "-",
+    "Sosiski": "-",
+    "Svinina": "-",
+    "Yajco": "-",
+
     "Krabovye Palochki": "-",
-    "Krahmal": "-",
-    "Kukuruza": "-",
-    "Kuraga": "-",
-    "Lavrovyj list": "-",
+    "Losos": "-",
+    "Seld": "-",
+    "Tunec": "-",
+
+    "Inzhir": "-",
+    "Grusha": "-",
+    "Avokado": "-",
+    "Izyum": "-",
+    "Banany": "-",
+    "CHernosliv": "-",
     "Limon": "-",
-    "Losos'": "-",
+    "Kuraga": "-",
+
+    "Brokkoli": "-",
+    "CHereshok sel'dereya": "-",
+    "CHesnok": "-",
+    "Fasol'": "-",
+    "Kabachok": "-",
+    "Kartofel": "-",
+    "Kapusta": "-",
+    "Kukuruza": "-",
     "Luk": "-",
-    "Majonez": "-",
-    "Makarony": "-",
-    "Manka": "-",
-    "Maslo": "-",
-    "Maslo olivk.": "-",
-    "Maslo pods": "-",
-    "Maslo pods.": "-",
-    "Moloko": "-",
     "Morkov'": "-",
-    "Muka": "-",
     "Ogurec": "-",
     "Ogurec marinovannyj": "-",
     "Ogurec solenyj": "-",
-    "Pechen'": "-",
     "Perec": "-",
     "Perec zelenyj": "-",
-    "Perlovka": "-",
     "Petrushka": "-",
-    "Razryhlitel' testa": "-",
-    "Ris": "-",
-    "Sahar": "-",
     "Salat": "-",
-    "Sel'd'": "-",
     "Shpinat": "-",
-    "Smetana": "-",
-    "Sol'": "-",
-    "Sosiski": "-",
-    "Sous soevyj": "-",
     "Sparzha": "-",
-    "Specii": "-",
     "Svekla": "-",
-    "Svinina": "-",
-    "Syr": "-",
-    "Tom.Pasta": "-",
+    "TomPasta": "-",
     "Tomaty": "-",
-    "Tunec": "-",
-    "Tvorog": "-",
     "Ukrop": "-",
-    "Uksus": "-",
-    "Voda": "-",
-    "Yajco": "-",
     "Zel.Goroshek": "-",
     "zelen'": "-",
     "Zelenyj luk": "-",
+
+    "Grechka": "-",
+    "Makarony": "-",
+    "Manka": "-",
+    "Perlovka": "-",
+    "Ris": "-",
+
+    "Griby": "-",
+
+    "Jogurt": "-",
+    "Moloko": "-",
+    "Tvorog": "-",
+    "Syr": "-",
+    "Smetana": "-",
+
+    "Kesh'yu": "-",
+
+    "Klyukva": "-",
+
+    "Korica": "-",
+    "Krahmal": "-",
+    "Lavrovyj list": "-",
+    "Majonez": "-",
+    "Maslo": "-",
+    "Maslo olivk.": "-",
+    "Maslo pods.": "-",
+    "Razryhlitel' testa": "-",
+    "Sahar": "-",
+    "Sol'": "-",
+    "Sous soevyj": "-",
+    "Specii": "-",
+    "Uksus": "-",
+    "Muka": "-",
+
+    "Voda": "-",
     "Juice": "-",
     "Tea": "-",
     "Coffee": "-",
     "Cocoa": "-",
-    "Milk": "-"
+    "Milk": "-",
+
+    "gastritis" : "-",
+    "stomach_ulcer":  "-",
+    "intestine_ulcer": "-",
+    "pancreatitis": "-",
+    "diabetes": "-",
+
+    "milk_product": "-",
+    "wheat": "-",
+    "citrus": "-",
+    "meat_product": "-",
+    "fish_product": "-",
+    "nut": "-"
 };
 
 class App extends React.Component {
@@ -153,7 +164,8 @@ class App extends React.Component {
                     <Stack.Screen name="Fish" component={Fish}/>
                     <Stack.Screen name="Garnish" component={Garnish}/>
                     <Stack.Screen name="Meat" component={Meat}/>
-                    <Stack.Screen name="Soup" component={Soup}/>
+                    <Stack.Screen name="Ovoshi" component={Ovoshi}/>
+                    <Stack.Screen name="Fruits" component={Fruits}/>
                     <Stack.Screen name="Drinks" component={Drinks}/>
                     <Stack.Screen name="Desert" component={Desert}/>
                     <Stack.Screen name="Allergies" component={Allergies}/>
@@ -164,6 +176,7 @@ class App extends React.Component {
                     <Stack.Screen name="Breakfast" component={Breakfast}/>
                     <Stack.Screen name="Dinner" component={Dinner}/>
                     <Stack.Screen name="LateDinner" component={LateDinner}/>
+                    <Stack.Screen name="Receipt" component={Receipt}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );

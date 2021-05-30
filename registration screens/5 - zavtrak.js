@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import SelectMultiple from 'react-native-select-multiple'
 
-const fruits = ['Яичница', 'Омлет', 'Каша', 'Сырники', 'Блины', 'Оладьи']
+const fruits = ['Яйца', 'Каша', 'Творог', 'Сметана', 'Сыр', 'Йогурт']
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -45,23 +45,24 @@ export default class Starts extends React.Component {
     componentWillUnmount() {
         if(this.state.selectedFruits) {
             this.state.selectedFruits.forEach(function (item) {
-                if (item.label.includes('Яичница')) {
-                    global.person.breakfast.yaichnitsa = '+';
-                }
-                if (item.label.includes('Омлет')) {
-                    global.person.breakfast.omlet = '+';
+                if (item.label.includes('Яйца')) {
+                    global.person.Yajco = '+';
                 }
                 if (item.label.includes('Каша')) {
-                    global.person.breakfast.kasha = '+';
+                    global.person.Manka = '+';
+                    global.person.Perlovka = '+';
                 }
-                if (item.label.includes('Сырники')) {
-                    global.person.breakfast.sirniki = '+';
+                if (item.label.includes('Творог')) {
+                    global.person.Tvorog = '+';
                 }
-                if (item.label.includes('Блины')) {
-                    global.person.breakfast.bliny = '+';
+                if (item.label.includes('Сметана')) {
+                    global.person.Smetana = '+';
                 }
-                if (item.label.includes('Оладьи')) {
-                    global.person.breakfast.oladi = '+';
+                if (item.label.includes('Сыр')) {
+                    global.person.Syr = '+';
+                }
+                if (item.label.includes('Йогурт')) {
+                    global.person.Jogurt = '+';
                 }
             });
         }
@@ -76,7 +77,7 @@ export default class Starts extends React.Component {
                         </TouchableOpacity>
 
                         <Text style = {styles.headn}>
-                            Какие виды завтраков Вас не устраивают?
+                            Какие продукты Вас не устраивают?
                         </Text>
 
                         <View>

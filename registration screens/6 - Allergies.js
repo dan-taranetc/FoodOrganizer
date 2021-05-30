@@ -43,53 +43,31 @@ export default class Starts extends React.Component {
     componentDidMount() {
         this._loadFontsAsync();
     }
-    componentDidUpdate() {
-        if(this.state.selectedFruits) {
-            this.state.selectedFruits.forEach(function (item) {
-                if (item.label.includes('Молочные продукты')) {
-                    if(global.person.allergies.milk_product === '+'){
-                        global.person.allergies.milk_product === '-'
-                    }else{
-                        global.person.allergies.milk_product === '+'
-                    }
-                }
-                if (item.label.includes('Пшеница и пшеничная мука')) {
-                    if(global.person.allergies.wheat === '+'){
-                        global.person.allergies.wheat === '-'
-                    }else{
-                        global.person.allergies.wheat === '+'
-                    }
-                }
-                if (item.label.includes('Цитрусовые')) {
-                    if(global.person.allergies.citrus === '+'){
-                        global.person.allergies.citrus === '-'
-                    }else{
-                        global.person.allergies.citrus === '+'
-                    }
-                }
-                if (item.label.includes('Мясные изделия')) {
-                    if(global.person.allergies.meat_product === '+'){
-                        global.person.allergies.meat_product === '-'
-                    }else{
-                        global.person.allergies.meat_product === '+'
-                    }
-                }
-                if (item.label.includes('Рыбные изделия')) {
-                    if(global.person.allergies.fish_product === '+'){
-                        global.person.allergies.fish_product === '-'
-                    }else{
-                        global.person.allergies.fish_product === '+'
-                    }
-                }
-                if (item.label.includes('Орехи')) {
-                    if(global.person.allergies.nut === '+'){
-                        global.person.allergies.nut === '-'
-                    }else{
-                        global.person.allergies.nut === '+'
-                    }
-                }
-            });
+    async allerg(array){
+        if(typeof array == "undefined"){
+            this.props.navigation.navigate('Diseases')
         }
+        array.forEach(function (item) {
+            if (item.label.includes('Молочные продукты')) {
+                global.person.milk_product = '+'
+            }
+            if (item.label.includes('Пшеница и пшеничная мука')) {
+                global.person.wheat = '+'
+            }
+            if (item.label.includes('Цитрусовые')) {
+                global.person.citrus = '+'
+            }
+            if (item.label.includes('Мясные изделия')) {
+                global.person.meat_product = '+'
+            }
+            if (item.label.includes('Рыбные изделия')) {
+                global.person.fish_product = '+'
+            }
+            if (item.label.includes('Орехи')) {
+                global.person.nut = '+'
+            }
+        });
+        this.props.navigation.navigate('Diseases')
     }
     render() {
         if (this.state.fontsLoaded) {
@@ -111,7 +89,7 @@ export default class Starts extends React.Component {
                         <Text style = {styles.help_text}>
                             Если у Вас нет аллергий, нажмите "ПРОДОЛЖИТЬ"
                         </Text>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Diseases')} style={styles.button}>
+                        <TouchableOpacity onPress={() => this.allerg(this.state.selectedFruits)} style={styles.button}>
                             <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
                         </TouchableOpacity>
                     </View>

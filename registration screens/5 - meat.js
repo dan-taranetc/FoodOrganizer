@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import SelectMultiple from 'react-native-select-multiple'
 
-const fruits = ['Говядина', 'Баранина', 'Свинина', 'Индейка', 'Курица',]
+const fruits = ['Говядина', 'Баранина', 'Свинина', 'Индейка', 'Курица', 'Сосиски', 'Бекон', 'Колбасы']
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -46,19 +46,28 @@ export default class Starts extends React.Component {
         if(this.state.selectedFruits) {
             this.state.selectedFruits.forEach(function (item) {
                 if (item.label.includes('Говядина')) {
-                    global.person.meat.govyadina = '+';
+                    global.person.Govyadina = '+';
                 }
                 if (item.label.includes('Баранина')) {
-                    global.person.meat.baranina = '+';
+                    global.person.Baranina = '+';
                 }
                 if (item.label.includes('Свинина')) {
-                    global.person.meat.svinina = '+';
+                    global.person.Svinina = '+';
                 }
                 if (item.label.includes('Индейка')) {
-                    global.person.meat.indeyka = '+';
+                    global.person.Indeyka = '+';
                 }
                 if (item.label.includes('Курица')) {
-                    global.person.garnish.salad = '+';
+                    global.person.Kuritsa = '+';
+                }
+                if (item.label.includes('Сосиски')) {
+                    global.person.Sosiski = '+';
+                }
+                if (item.label.includes('Бекон')) {
+                    global.person.Bekon = '+';
+                }
+                if (item.label.includes('Колбасы')) {
+                    global.person.Kolbasa = '+';
                 }
             });
         }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import {Image as ReactImage} from 'react-native';
 import * as Font from 'expo-font';
+import AppLoading from "expo-app-loading";
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -61,50 +62,52 @@ export default class Starts extends Component {
         global.person.Userdata.sex = this.state.sex;
     }
     render() {
-        // const [number, onChangeNumber] = React.useState(null)
-        let weight = 'kkk'
-        return (
-            <View style={styles.container}>
-                <Text style = {styles.headn}>
-                    РЕГИСТРАЦИЯ
-                </Text>
-                <TextInput
-                    style={styles.input1}
-                    placeholder="Логин"
-                    keyboardType="default"
-                    onChangeText={login => this.setState({ login })}
-                    value={this.state.login}
-                />
-                <TextInput
-                    style={styles.input2}
-                    secureTextEntry={true}
-                    placeholder="Пароль"
-                    onChangeText={password => this.setState({ password })}
-                    value={this.state.password}
-                    keyboardType="default"
-                />
-                <TextInput
-                    style={styles.input3}
-                    placeholder="Имя"
-                    keyboardType="default"
-                    onChangeText={name => this.setState({ name })}
-                    value={this.state.name}
-                />
-                <TextInput
-                    style={styles.input4}
-                    placeholder="Пол"
-                    keyboardType="default"
-                    onChangeText={sex => this.setState({ sex })}
-                    value={this.state.sex}
-                />
-                <Text style = {styles.help_text}>
-                    Нажимая «продолжить», Вы подтверждаете,что прочитали Политику конфиденциальности и согласны с Условиями оказания услуг
-                </Text>
-                <TouchableOpacity onPress={() => this.new_user(this.state.login, this.state.name, this.state.sex)} style={styles.button}>
-                    <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
-                </TouchableOpacity>
-            </View>
-        );
+        if (this.state.fontsLoaded) {
+            return (
+                <View style={styles.container}>
+                    <Text style = {styles.headn}>
+                        РЕГИСТРАЦИЯ
+                    </Text>
+                    <TextInput
+                        style={styles.input1}
+                        placeholder="Логин"
+                        keyboardType="default"
+                        onChangeText={login => this.setState({ login })}
+                        value={this.state.login}
+                    />
+                    <TextInput
+                        style={styles.input2}
+                        secureTextEntry={true}
+                        placeholder="Пароль"
+                        onChangeText={password => this.setState({ password })}
+                        value={this.state.password}
+                        keyboardType="default"
+                    />
+                    <TextInput
+                        style={styles.input3}
+                        placeholder="Имя"
+                        keyboardType="default"
+                        onChangeText={name => this.setState({ name })}
+                        value={this.state.name}
+                    />
+                    <TextInput
+                        style={styles.input4}
+                        placeholder="Пол"
+                        keyboardType="default"
+                        onChangeText={sex => this.setState({ sex })}
+                        value={this.state.sex}
+                    />
+                    <Text style = {styles.help_text}>
+                        Нажимая «продолжить», Вы подтверждаете,что прочитали Политику конфиденциальности и согласны с Условиями оказания услуг
+                    </Text>
+                    <TouchableOpacity onPress={() => this.new_user(this.state.login, this.state.name, this.state.sex)} style={styles.button}>
+                        <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
+                    </TouchableOpacity>
+                </View>
+            );
+        } else {
+            return <AppLoading />;
+        }
     }
 }
 

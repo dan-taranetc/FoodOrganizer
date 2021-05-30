@@ -62,16 +62,20 @@ export default class Starts extends Component {
                             </TouchableOpacity>
                         </View>
 
-                        <View style = {styles.soup_drink}>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Soup')}>
-                                <ReactImage source={require('../pngs/variaty/soup.png')} style = {styles.image_soup}/>
+                        <View style = {styles.ovoshi_fruits}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Ovoshi')}>
+                                <ReactImage source={require('../pngs/variaty/ovoshi.png')} style = {styles.image_ovoshi}/>
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Drinks')}>
-                                <ReactImage source={require('../pngs/variaty/drink.png')} style = {styles.image_drink}/>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Fruits')}>
+                                <ReactImage source={require('../pngs/variaty/frukti.png')} style = {styles.image_fruits}/>
                             </TouchableOpacity>
                         </View>
                         <View style = {styles.des}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Drinks')}>
+                                <ReactImage source={require('../pngs/variaty/drink.png')} style = {styles.image_drink}/>
+                            </TouchableOpacity>
+
                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Desert')}>
                                 <ReactImage source={require('../pngs/variaty/desert.png')} style = {styles.image_desert}/>
                             </TouchableOpacity>
@@ -151,16 +155,16 @@ const styles = StyleSheet.create({
         width: 136,
         height: 136,
     },
-    soup_drink: {
+    ovoshi_fruits: {
         flexDirection: 'row',
         top: '40%',
     },
-    image_soup: {
+    image_ovoshi: {
         left: '-10%',
         width: 136,
         height: 136,
     },
-    image_drink: {
+    image_fruits: {
         left: '10%',
         width: 136,
         height: 136,
@@ -169,8 +173,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         top: "45%",
     },
+    image_drink: {
+        left: '-10%',
+        width: 136,
+        height: 136,
+    },
     image_desert: {
-        left: '0%',
+        left: '10%',
         width: 136,
         height: 136,
     },

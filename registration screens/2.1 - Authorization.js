@@ -30,7 +30,6 @@ export default class Starts extends Component {
         })
         if (response.ok) {
             let text = await response.json();
-            console.log(text)
             if (text != 0){
                 console.log('Person authorized')
                 global.person = JSON.parse(JSON.stringify(text))
