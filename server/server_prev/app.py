@@ -2,8 +2,11 @@ import diet_algorithm
 from flask import Flask, request
 import pandas as pd
 import json
+# from flask_json import FlaskJSON
 
 app = Flask(__name__)
+# FlaskJSON(app)
+
 
 @app.route('/reg', methods=['GET', 'POST'])
 def registration():
@@ -25,6 +28,7 @@ def main_list():
 @app.route('/auth', methods=['GET', 'POST'])
 def authorization():
     jdata = json.loads(request.data)
+    print(jdata)
     with open('users.json') as f:
         users = json.load(f)
         if jdata['login'] in users:
@@ -60,4 +64,4 @@ def get_diet():
 
 
 if __name__ == '__main__':
-    app.run('127.0.0.1', port=1337, debug=True)
+    app.run('127.0.0.1', port=1500, debug=True)

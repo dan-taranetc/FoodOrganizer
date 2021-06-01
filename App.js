@@ -29,7 +29,7 @@ import Receipt from './registration screens/Receipt.js';
 import 'react-native-gesture-handler';
 const Stack = createStackNavigator();
 
-global.url = 'http://6f9c83d07eab.ngrok.io'
+global.url = 'https://e44a358e4dc2.ngrok.io'
 global.breakfast = ''
 global.receipt = ''
 global.person = {
@@ -58,6 +58,9 @@ global.person = {
     "Losos": "-",
     "Seld": "-",
     "Tunec": "-",
+    "Mintaj": "-",
+    "Skumbriya": "-",
+    "Sudak": "-",
 
     "Inzhir": "-",
     "Grusha": "-",
@@ -67,6 +70,7 @@ global.person = {
     "CHernosliv": "-",
     "Limon": "-",
     "Kuraga": "-",
+    "Apel'sin": "-",
 
     "Brokkoli": "-",
     "CHereshok sel'dereya": "-",
@@ -100,6 +104,8 @@ global.person = {
     "Manka": "-",
     "Perlovka": "-",
     "Ris": "-",
+    "YAchnevaya" : "-",
+    "Ovsyanka": "-",
 
     "Griby": "-",
 
@@ -127,6 +133,7 @@ global.person = {
     "Specii": "-",
     "Uksus": "-",
     "Muka": "-",
+    "Perec molot.": "-",
 
     "Voda": "-",
     "Juice": "-",
@@ -134,6 +141,7 @@ global.person = {
     "Coffee": "-",
     "Cocoa": "-",
     "Milk": "-",
+    "Slivki": "-",
 
     "gastritis" : "-",
     "stomach_ulcer":  "-",
@@ -149,6 +157,109 @@ global.person = {
     "nut": "-"
 };
 
+
+global.dict = {
+    "Kuritsa": " Курица",
+    "Baranina": " Баранина",
+    "Bekon": " Бекон",
+    "Farsh": " Фарш говяжий",
+    "Govyadina": " Говядина",
+    "Indeyka": " Индейка",
+    "Kolbasa": " Колбаса",
+    "Pechen'": " Печень",
+    "Sosiski": " Сосиски",
+    "Svinina": " Свинина",
+    "Yajco": " Яйцо",
+
+    "Krabovye Palochki": " Крабовые палочки",
+    "Losos": " Лосось",
+    "Seld": " Сельдь",
+    "Tunec": " Тунец",
+    "Mintaj": " Минтай",
+    "Skumbriya": " Скумбрия",
+    "Sudak": " Судак",
+
+    "Inzhir": " Инжир",
+    "Grusha": " Груша",
+    "Avokado": " Авокадо",
+    "Izyum": " Изюм",
+    "Banany": " Бананы",
+    "CHernosliv": " Чернослив",
+    "Limon": " Лимон",
+    "Kuraga": " Курага",
+    "Apel'sin": " Апельсин",
+
+    "Brokkoli": " Брокколи",
+    "CHereshok sel'dereya": " Черешок сельдерея",
+    "CHesnok": " Чеснок",
+    "Fasol'": " Фасоль",
+    "Kabachok": " Кабачок",
+    "Kartofel": " Картофель",
+    "Kapusta": " Капуста",
+    "Kukuruza": " Кукуруза",
+    "Luk": " Лук",
+    "Morkov'": " Морковь",
+    "Ogurec": " Огурец",
+    "Ogurec marinovannyj": " Огурец маринованный",
+    "Ogurec solenyj": " Огурец соленый",
+    "Perec": " Перец",
+    "Perec zelenyj": " Перец зеленый",
+    "Petrushka": " Петрушка",
+    "Salat": " Салат",
+    "Shpinat": " Шпинат",
+    "Sparzha": " Спаржа",
+    "Svekla": " Свекла",
+    "TomPasta": " Том. паста",
+    "Tomaty": " Помидоры",
+    "Ukrop": " Укроп",
+    "Zel.Goroshek": " Зел. горошек",
+    "zelen'": " Зелень",
+    "Zelenyj luk": " Зеленый лук",
+
+    "Grechka": " Гречка",
+    "Makarony": " Макароны",
+    "Manka": " Манка",
+    "Perlovka": " Перловка",
+    "Ris": " Рис",
+    "YAchnevaya" : " Ячневая крупа",
+    "Ovsyanka": " Овсяная крупа",
+
+    "Griby": " Грибы",
+
+    "Jogurt": " Йогурт",
+    "Moloko": " Молоко",
+    "Tvorog": " Творог",
+    "Syr": " Сыр",
+    "Smetana": " Сметана",
+
+    "Kesh'yu": " Кешью",
+
+    "Klyukva": " Клюква",
+
+    "Korica": " Корица",
+    "Krahmal": " Крахмал",
+    "Lavrovyj list": " Лавровый лист",
+    "Majonez": " Майонез",
+    "Maslo": " Масло",
+    "Maslo olivk.": " Масло оливковое",
+    "Maslo pods.": " Масло подсолнечное",
+    "Razryhlitel' testa": " Разрыхлитель теста",
+    "Sahar": " Сахар",
+    "Sol'": " Соль",
+    "Sous soevyj": " Соус соевый",
+    "Specii": " Специи",
+    "Uksus": " Уксус",
+    "Muka": " Мука",
+    "Perec molot.": " Перец молотый",
+
+    "Voda": " Вода",
+    "Juice": " Сок",
+    "Tea": " Чай",
+    "Coffee": " Кофе",
+    "Cocoa": " Какао",
+    "Milk": " Молоко",
+    "Slivki": " Сливки",
+};
 class App extends React.Component {
     render() {
         return (

@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        top: '30%',
+        top: '28%',
     },
     buttonText: {
         fontSize: 14,

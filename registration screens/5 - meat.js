@@ -47,6 +47,7 @@ export default class Starts extends React.Component {
             this.state.selectedFruits.forEach(function (item) {
                 if (item.label.includes('Говядина')) {
                     global.person.Govyadina = '+';
+                    global.person.Farsh = '+';
                 }
                 if (item.label.includes('Баранина')) {
                     global.person.Baranina = '+';

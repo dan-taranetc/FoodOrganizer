@@ -55,7 +55,7 @@ export default class Starts extends React.Component {
                     global.person.Banany = '+';
                 }
                 if (item.label.includes('Апельсины')) {
-                    // global.person.Kapusta = '+';
+                    global.person["Apel'sin"] = '+';
                 }
                 if (item.label.includes('Лимоны')) {
                     global.person.Limon = '+';

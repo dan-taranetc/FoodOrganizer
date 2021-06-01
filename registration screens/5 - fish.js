@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import SelectMultiple from 'react-native-select-multiple'
 
-const fruits = ['Треска', 'Минтай', 'Нерка', 'Форель', 'Семга', 'Лосось', 'Сельдь', 'Тунец']
+const fruits = ['Треска', 'Минтай', 'Форель', 'Семга', 'Лосось', 'Сельдь', 'Тунец', 'Скумбрия', 'Судак']
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -55,10 +55,10 @@ export default class Starts extends React.Component {
                     global.person.Losos = '+';
                 }
                 if (item.label.includes('Минтай')) {
-                    // global.person.fish.mintai = '+';
+                    global.person.Mintaj = '+';
                 }
-                if (item.label.includes('Нерка')) {
-                    // global.person.fish.nerka = '+';
+                if (item.label.includes('Скумбрия')) {
+                    global.person.Skumbriya = '+';
                 }
                 if (item.label.includes('Семга')) {
                     // global.person.fish.semga = '+';
@@ -68,6 +68,9 @@ export default class Starts extends React.Component {
                 }
                 if (item.label.includes('Тунец')) {
                     global.person.Tunec = '+';
+                }
+                if (item.label.includes('Судак')) {
+                    global.person.Sudak = '+';
                 }
             });
         }

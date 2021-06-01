@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        top: '-18%',
+        top: '-21%',
     },
 
     buttonText: {
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
         top: '30%',
     },
     help_text: {
-        top: '-20%',
+        top: '-23%',
         fontSize: 10,
         fontFamily: 'Lato-Thin',
     },

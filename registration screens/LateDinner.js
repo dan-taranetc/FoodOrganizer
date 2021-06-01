@@ -12,6 +12,10 @@ let customFonts = {
     'Lato-Light': require('../fonts/Lato/Lato-Light.ttf'),
 };
 
+function splitString(stringToSplit, separator) {
+    var arrayOfStrings = stringToSplit.split(separator);
+    return arrayOfStrings
+}
 
 export default class Starts extends Component {
 
@@ -114,13 +118,18 @@ export default class Starts extends Component {
                                     <TouchableOpacity onPress={() => this.getreceipt(item[6])}>
                                         <Text style = {styles.blud}>{item[0]}</Text><
                                         /TouchableOpacity>
-                                    <Text style = {styles.sostav}>{'Состав: '+item[1]}</Text>
+                                    <Text style = {styles.sostav}>{'Состав: '}
+                                        {splitString(item[1], ',').map((itm) => (
+                                            <Text style = {styles.sostav}>{global.dict[itm]+';'}</Text>
+                                        ))}
+                                    </Text>
                                     <Text style = {styles.sostav}>{'Белки: '+item[2]+'г.'}</Text>
                                     <Text style = {styles.sostav}>{'Жиры: '+item[3]+'г.'}</Text>
                                     <Text style = {styles.sostav}>{'Углеводы: '+item[4]+'г.'}</Text>
                                     <Text style = {styles.sostav}>{'Калорийность: '+item[5]+' ккал.'}{'\n'}</Text>
                                 </View>
                             ))}
+                            <Text style={styles.drink_hedn}>Напитки:</Text>
                             {drinks.map((item) => (
                                 <View style = {styles.table}>
                                     <Text style = {styles.drink}>{item}</Text>
@@ -155,6 +164,10 @@ const styles = StyleSheet.create({
         left: '-1%',
         color: '#22A45D'
     },
+    drink_hedn: {
+        fontSize: 16,
+        fontFamily: 'Lato-Bold',
+    },
     list: {
         top: '15%',
         left: '0%',
@@ -174,7 +187,7 @@ const styles = StyleSheet.create({
     },
     drink: {
         fontSize: 16,
-        fontFamily: 'Lato-Bold',
+        fontFamily: 'Lato-Regular',
     },
     text: {
         position: 'absolute',

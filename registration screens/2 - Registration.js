@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Picker, TextInput, TouchableOpacity, Keyboard, TouchableWithoutFeedback} from 'react-native';
 import {Image as ReactImage} from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from "expo-app-loading";
+
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -14,7 +15,8 @@ let customFonts = {
 export default class Starts extends Component {
     constructor(props) {
         super(props);
-        this.state = {sex: '', name: '', login: '', password: ''};
+        this.state = {sex: '', name: '', login: '', password: '', selectedValue: 'Мужской'};
+
     }
 
     state = {
@@ -23,7 +25,7 @@ export default class Starts extends Component {
     };
 
     async new_user(login, name, sex){
-        if(login.length === 0 || name.length === 0 || sex.length === 0){
+        if(login.length === 0 || name.length === 0){
             alert('Заполните все поля.')
             return
         }
@@ -59,12 +61,16 @@ export default class Starts extends Component {
     componentDidUpdate() {
         global.person.Userdata.login = this.state.login;
         global.person.Userdata.password = this.state.password;
-        global.person.Userdata.sex = this.state.sex;
+        global.person.Userdata.sex = this.state.selectedValue;
     }
     render() {
         if (this.state.fontsLoaded) {
             return (
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <View style={styles.container}>
+                    <TouchableOpacity onPress={() => alert('Введите уникальный логин и пароль для своего аккаунта, а также имя и пол.')} style = {styles.info}>
+                        <ReactImage source={require('../pngs/info.png') } style = {styles.info_png}/>
+                    </TouchableOpacity>
                     <Text style = {styles.headn}>
                         РЕГИСТРАЦИЯ
                     </Text>
@@ -90,13 +96,18 @@ export default class Starts extends Component {
                         onChangeText={name => this.setState({ name })}
                         value={this.state.name}
                     />
-                    <TextInput
-                        style={styles.input4}
-                        placeholder="Пол"
-                        keyboardType="default"
-                        onChangeText={sex => this.setState({ sex })}
-                        value={this.state.sex}
-                    />
+                    <View style={{flexDirection: 'row'}}>
+                        <Text style={{left: '-185%', color: 'grey', fontFamily: 'Lato-Regular',}}>Пол</Text>
+                        <Picker
+                            style={{height:30, width:'45%', top: '-23%', left: '-25%'}}
+                            selectedValue={this.state.selectedValue}
+                            onValueChange={(value) => {this.setState({selectedValue: value})}}
+                            itemStyle={styles.pickerItem}
+                        >
+                            <Picker.Item label="Мужской" value="Мужской" />
+                            <Picker.Item label="Женский" value="Женский" />
+                        </Picker>
+                    </View>
                     <Text style = {styles.help_text}>
                         Нажимая «продолжить», Вы подтверждаете,что прочитали Политику конфиденциальности и согласны с Условиями оказания услуг
                     </Text>
@@ -104,6 +115,7 @@ export default class Starts extends Component {
                         <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
                     </TouchableOpacity>
                 </View>
+                </TouchableWithoutFeedback>
             );
         } else {
             return <AppLoading />;
@@ -129,6 +141,14 @@ const styles = StyleSheet.create({
         top: '-6%',
         left: '7%',
     },
+    info:{
+        top: '3%',
+        right: '-20%',
+    },
+    info_png:{
+        width: 20,
+        height: 21,
+    },
     headn: {
         position: 'relative',
         fontFamily: 'Lato-Bold',
@@ -136,34 +156,34 @@ const styles = StyleSheet.create({
         width: '90%',
         height: 'auto',
         textAlign: 'center',
-        top: '5%',
+        top: '-6%',
         left: '0%',
     },
     input1: {
-        height:'5%',
+        height:'6%',
         width: '80%',
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '5%',
+        top: '0%',
         borderColor: '#22A45D',
     },
     input2: {
-        height: '5%',
+        height: '6%',
         width: '80%',
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '-1%',
+        top: '-2%',
         borderColor: '#22A45D',
     },
     input3: {
-        height: '5%',
+        height: '6%',
         width: '80%',
         borderBottomWidth: 2,
         fontFamily: 'Lato-Regular',
         fontSize: 14,
-        top: '-6%',
+        top: '-4%',
         borderColor: '#22A45D',
     },
     input4: {
@@ -193,7 +213,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '1.5%',
+        bottom: '5%',
     },
     buttonText: {
         fontFamily: 'Lato-Black',
@@ -203,7 +223,7 @@ const styles = StyleSheet.create({
         top: '30%',
     },
     help_text: {
-        top: '5%',
+        top: '2%',
         fontSize: 11,
         textAlign: 'center',
         fontFamily: 'Lato-Thin',

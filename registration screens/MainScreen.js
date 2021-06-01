@@ -20,9 +20,9 @@ export default class Starts extends Component {
         };
     }
     renderElement(){
-        if(global.person.Userdata.sex === 'М')
+        if(global.person.Userdata.sex === 'Мужской')
             return Math.round(88.36 + (13.4 * global.person.Userdata.weight) + (4.8 * global.person.Userdata.height) - (5.7 * global.person.Userdata.age))
-        if(global.person.Userdata.sex === 'Ж')
+        if(global.person.Userdata.sex === 'Женский')
             return Math.round(447.6 + (9.2 * global.person.Userdata.weight) + (3.1 * global.person.Userdata.height) - (4.3 * global.person.Userdata.age))
 }
     state = {

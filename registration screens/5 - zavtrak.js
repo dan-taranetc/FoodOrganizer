@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import SelectMultiple from 'react-native-select-multiple'
 
-const fruits = ['Яйца', 'Каша', 'Творог', 'Сметана', 'Сыр', 'Йогурт']
+const fruits = ['Яйца', 'Манная каша', 'Перловая каша', 'Ячневая каша', 'Овсяная каша', 'Творог', 'Сметана', 'Сыр', 'Йогурт']
 
 let customFonts = {
     'Lato-Black': require('../fonts/Lato/Lato-Black.ttf'),
@@ -48,9 +48,17 @@ export default class Starts extends React.Component {
                 if (item.label.includes('Яйца')) {
                     global.person.Yajco = '+';
                 }
-                if (item.label.includes('Каша')) {
+                if (item.label.includes('Манная каша')) {
                     global.person.Manka = '+';
+                }
+                if (item.label.includes('Перловая каша')) {
                     global.person.Perlovka = '+';
+                }
+                if (item.label.includes('Ячневая каша')) {
+                    global.person.YAchnevaya = '+';
+                }
+                if (item.label.includes('Овсяная каша')) {
+                    global.person.Ovsyanka = '+';
                 }
                 if (item.label.includes('Творог')) {
                     global.person.Tvorog = '+';
