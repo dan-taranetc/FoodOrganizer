@@ -70,7 +70,7 @@ export default class Starts extends Component {
                     <Text style = {styles.text}>
                         Вас не устраивает выбор исключенных продуктов?
                     </Text>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Settings')} style={styles.button}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignupVariaty')} style={styles.button}>
                         <Text style={styles.buttonText}>ПРОЙТИ РЕГИСТРАЦИЮ ЗАНОВО</Text>
                     </TouchableOpacity>
                 </View>
@@ -134,11 +134,11 @@ const styles = StyleSheet.create({
     },
     text: {
         fontFamily: 'Lato-Light',
-        fontSize: 20,
+        fontSize: 22,
         width: '90%',
-        left: '15%',
+        left: '0%',
         height: 'auto',
-        textAlign: 'left',
+        textAlign: 'center',
         top: '-15%',
     },
     text1: {
@@ -180,8 +180,8 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: "#22A45D",
         borderRadius: 8,
-        width: '40%',
-        height: '12%',
+        width: '35%',
+        height: '10%',
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,

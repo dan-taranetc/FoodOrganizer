@@ -47,19 +47,19 @@ export default class Starts extends React.Component {
         if(this.state.selectedFruits) {
             this.state.selectedFruits.forEach(function (item) {
                 if (item.label.includes('Сок')) {
-                    global.person.drinks.juice = '+';
+                    global.person.Juice = '+';
                 }
                 if (item.label.includes('Чай')) {
-                    global.person.drinks.tea = '+';
+                    global.person.Tea = '+';
                 }
                 if (item.label.includes('Кофе')) {
-                    global.person.drinks.coffee = '+';
+                    global.person.Coffee = '+';
                 }
                 if (item.label.includes('Какао')) {
-                    global.person.drinks.cocoa = '+';
+                    global.person.Cocoa = '+';
                 }
                 if (item.label.includes('Молоко')) {
-                    global.person.drinks.milk = '+';
+                    global.person.Milk = '+';
                 }
             });
         }

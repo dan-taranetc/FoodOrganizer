@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        bottom: '2%',
     },
     buttonText: {
         fontSize: 14,

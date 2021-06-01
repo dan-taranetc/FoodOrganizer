@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {Image as ReactImage} from 'react-native';
 import * as Font from 'expo-font';
 
@@ -29,10 +29,11 @@ export default class Starts extends Component {
             })
         })
         if (response.ok) {
-            let text = await response.text();
-            if (text === '0'){
+            let text = await response.json();
+            if (text != 0){
                 console.log('Person authorized')
-                this.props.navigation.navigate('Settings')
+                global.person = JSON.parse(JSON.stringify(text))
+                this.props.navigation.navigate('MainScreen')
             }else{
                 console.log('Person send wrong log/pass')
                 alert("Неправильно введен логин или пароль.")
@@ -56,6 +57,7 @@ export default class Starts extends Component {
         // const [number, onChangeNumber] = React.useState(null)
         let weight = 'kkk'
         return (
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
                 <Text style = {styles.headn}>
                     АВТОРИЗАЦИЯ
@@ -79,13 +81,14 @@ export default class Starts extends Component {
                     Забыли пароль?
                 </Text>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Registration')} style = {styles.reg_again}>
-                    <Text style = {styles.reg_again_text}>Зарегестрироваться заново</Text>
+                    <Text style = {styles.reg_again_text}>Зарегистрироваться заново</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => this.authorizate(this.state.login, this.state.password)} style={styles.button}>
                     <Text style={styles.buttonText}>ВОЙТИ</Text>
                 </TouchableOpacity>
             </View>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -154,7 +157,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '0%',
+        bottom: '3%',
     },
     buttonText: {
         fontFamily: 'Lato-Black',

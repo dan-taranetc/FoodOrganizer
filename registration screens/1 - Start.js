@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-1%',
+        bottom: '2%',
     },
     button_registration:{
         backgroundColor: "#22A45D",
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '-10%',
+        bottom: '-8%',
     },
     buttonText: {
         fontFamily: 'Lato-Black',

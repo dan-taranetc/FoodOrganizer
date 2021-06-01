@@ -36,50 +36,36 @@ export default class Starts extends Component {
         this.props.navigation.navigate('Endfirst')
     }
     componentDidUpdate() {
-        global.person.age = this.state.age;
-        global.person.weight = this.state.weight;
-        global.person.height = this.state.height;
+        global.person.Userdata.age = this.state.age;
+        global.person.Userdata.weight = this.state.weight;
+        global.person.Userdata.height = this.state.height;
     }
 
     render() {
-        // const [number, onChangeNumber] = React.useState(null)
         return (
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.container}>
                 <Text style = {styles.headn}>
                     ВВЕДИТЕ СВОЙ ВОЗРАСТ, ПРИМЕРНЫЙ ВЕС И РОСТ
                 </Text>
-                {/*<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>*/}
-                {/*    <View style={styles.input1_view}>*/}
                 <TextInput
                     style={styles.input1}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
                     placeholder="Возраст"
-                    keyboardType="numbers-and-punctuation"
+                    keyboardType="numeric"
                     onChangeText={age => this.setState({ age })}
                     value={this.state.age}
                 />
-                {/*    </View>*/}
-                {/*</TouchableWithoutFeedback>*/}
-                {/*<TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>*/}
-                {/*    <View style={styles.input2_view}>*/}
                 <TextInput
                     style={styles.input2}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="Вес"
-                    keyboardType="numbers-and-punctuation"
+                    placeholder="Вес                                                                                         (кг.)"
+                    keyboardType="numeric"
                     onChangeText={weight => this.setState({ weight })}
                     value={this.state.weight}
                 />
-                {/*    </View>*/}
-                {/*</TouchableWithoutFeedback>*/}
                 <TextInput
                     style={styles.input3}
-                    // onChangeText={onChangeNumber}
-                    // value={number}
-                    placeholder="Рост"
-                    keyboardType="numbers-and-punctuation"
+                    placeholder="Рост                                                                                     (см.)"
+                    keyboardType="numeric"
                     onChangeText={height => this.setState({ height })}
                     value={this.state.height}
                 />
@@ -88,10 +74,8 @@ export default class Starts extends Component {
                 <TouchableOpacity onPress={() => this.age_weight_height(this.state.age, this.state.weight, this.state.height)} style={styles.button}>
                     <Text style={styles.buttonText}>ПРОДОЛЖИТЬ</Text>
                 </TouchableOpacity>
-
-
-
             </View>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -179,7 +163,7 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 10,
         shadowOpacity: 0.25,
-        bottom: '1%',
+        bottom: '4%',
     },
     buttonText: {
         fontSize: 14,
